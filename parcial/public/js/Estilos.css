@@ -1,0 +1,20 @@
+/* Estilos personalizados */
+body { 
+    font-family: 'Inter', sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+.weather-bg {
+    background: linear-gradient(to bottom, #092bc4 0%, #14bec7 100%);
+    min-height: 100vh;
+    background-attachment: fixed; 
+}
+
+#forecast-container::-webkit-scrollbar {
+    height: 4px;
+}
+#forecast-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
