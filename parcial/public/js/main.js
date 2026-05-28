@@ -11,9 +11,8 @@ const humidity = document.getElementById('humidity');
 const wind = document.getElementById('wind-speed');
 const visibility = document.getElementById('visibility'); // Añadido
 const icon = document.getElementById('weather-icon');
-const currentDate = document.getElementById('current-date'); // Añadido
+const currentDate = document.getElementById('current-date');
 
-// Función para formatear la fecha actual (Ej: "Lunes, 15 de Abril")
 function updateDate() {
     const now = new Date();
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
@@ -32,19 +31,19 @@ function updateUI(data) {
     temp.textContent = `${Math.round(data.main.temp)}°`;
     desc.textContent = data.weather[0].description;
     humidity.textContent = `${data.main.humidity}%`;
-    
+
     // Convertimos metros a km/h (OpenWeather devuelve m/s por defecto)
     const windKmH = Math.round(data.wind.speed * 3.6);
     wind.textContent = `${windKmH} km/h`;
-    
+
     // Visibilidad en KM
     const visKm = (data.visibility / 1000).toFixed(1);
     visibility.textContent = `${visKm} km`;
-    
+
     // Icono dinámico
     const iconCode = data.weather[0].icon;
     icon.src = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
-    
+
     // Actualizar la fecha cada vez que buscamos
     updateDate();
 }
